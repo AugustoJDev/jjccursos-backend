@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { JwtService } from '@nestjs/jwt';
-
 import * as bcrypt from 'bcryptjs';
+import { User } from 'prisma/generated/prisma-client';
+
+type SafeUser = Pick<User, 'id' | 'name' | 'email' | 'cpf' | 'phone' | 'createdAt' >;
 
 @Injectable()
 export class AuthService {
@@ -17,19 +19,24 @@ export class AuthService {
     email: string; 
     password: string; 
     cpf: string; 
-    phone: string 
-  }) {
+    phone: string;
+    createdAt: string;
+  }): Promise<{ message: string; userId: string }> {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     const user = await this.prisma.user.create({
       data: { ...data, password: hashedPassword },
+      select: { id: true },
     });
 
     return { message: 'Usuário registrado com sucesso!', userId: user.id };
   }
 
-  async login(res: Response, email: string, password: string, ) {
-    const user = await this.prisma.user.findUnique({ where: { email } });
-    
+  async login(res: Response, email: string, password: string): Promise<Response> {
+    const user = await this.prisma.user.findUnique({
+      where: { email },
+      select: { id: true, password: true },
+    });
+
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ message: 'Credenciais inválidas' });
     }
@@ -45,9 +52,25 @@ export class AuthService {
     return res.json({ message: 'Login realizado com sucesso!' });
   }
 
-  logout(res: Response) {
-    res.clearCookie('access_token');
-
+  logout(res: Response): Response {
+    res.clearCookie('auth_token');
     return res.json({ message: 'Logout realizado com sucesso!' });
+  }
+
+  async validateUserFromCookie(req: Request & { cookies?: { [key: string]: any } }): Promise<SafeUser | null> {
+    try {
+      const token = req.cookies?.auth_token;
+      if (!token) return null;
+
+      const decoded = this.jwtService.verify<{ userId: string }>(token);
+      const user = await this.prisma.user.findUnique({
+        where: { id: decoded.userId }
+      });
+
+      return user as SafeUser;
+    } catch (error) {
+      console.error("Erro ao validar usuário:", error);
+      return null;
+    }
   }
 }
