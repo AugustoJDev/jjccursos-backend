@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "plan" VARCHAR(50) NOT NULL DEFAULT 'FREE';

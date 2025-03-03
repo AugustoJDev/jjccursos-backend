@@ -1,6 +1,6 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Body, Res, Req, Get } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -9,8 +9,17 @@ export class AuthController {
   ) {}
 
   @Post('register')
-  async register(@Body() data: any) {
-    return this.authService.register(data);
+  async register(
+    @Res() res: Response,
+    @Body() data: {
+      name: string;
+      email: string;
+      password: string;
+      cpf: string;
+      phone: string;
+    }
+  ) {
+    return this.authService.register(res, data);
   }
 
   @Post('login')
@@ -19,5 +28,15 @@ export class AuthController {
     @Res() res: Response
   ) {
     return this.authService.login(res, email, password);
+  }
+
+  @Post('logout')
+  logout(@Res() res: Response) {
+    return this.authService.logout(res);
+  }
+
+  @Get('me')
+  async me(@Req() req: Request, @Res() res: Response) {
+    return this.authService.me(req, res);
   }
 }
