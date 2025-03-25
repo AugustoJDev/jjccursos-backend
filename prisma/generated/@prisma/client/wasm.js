@@ -139,6 +139,29 @@ exports.Prisma.UserScalarFieldEnum = {
   cpf: 'cpf',
   phone: 'phone',
   plan: 'plan',
+  subscriptionStatus: 'subscriptionStatus',
+  subscriptionType: 'subscriptionType',
+  subscriptionId: 'subscriptionId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.VideoProgressScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  videoId: 'videoId',
+  progress: 'progress',
+  completed: 'completed',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PaymentSessionScalarFieldEnum = {
+  id: 'id',
+  sessionId: 'sessionId',
+  userId: 'userId',
+  priceId: 'priceId',
+  planType: 'planType',
+  status: 'status',
   createdAt: 'createdAt'
 };
 
@@ -152,11 +175,18 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
   PaymentHistory: 'PaymentHistory',
   Plans: 'Plans',
-  User: 'User'
+  User: 'User',
+  VideoProgress: 'VideoProgress',
+  PaymentSession: 'PaymentSession'
 };
 
 /**

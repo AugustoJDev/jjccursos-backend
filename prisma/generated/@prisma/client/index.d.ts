@@ -28,6 +28,16 @@ export type Plans = $Result.DefaultSelection<Prisma.$PlansPayload>
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model VideoProgress
+ * 
+ */
+export type VideoProgress = $Result.DefaultSelection<Prisma.$VideoProgressPayload>
+/**
+ * Model PaymentSession
+ * 
+ */
+export type PaymentSession = $Result.DefaultSelection<Prisma.$PaymentSessionPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +193,26 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.videoProgress`: Exposes CRUD operations for the **VideoProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more VideoProgresses
+    * const videoProgresses = await prisma.videoProgress.findMany()
+    * ```
+    */
+  get videoProgress(): Prisma.VideoProgressDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.paymentSession`: Exposes CRUD operations for the **PaymentSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PaymentSessions
+    * const paymentSessions = await prisma.paymentSession.findMany()
+    * ```
+    */
+  get paymentSession(): Prisma.PaymentSessionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +655,9 @@ export namespace Prisma {
   export const ModelName: {
     PaymentHistory: 'PaymentHistory',
     Plans: 'Plans',
-    User: 'User'
+    User: 'User',
+    VideoProgress: 'VideoProgress',
+    PaymentSession: 'PaymentSession'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -641,7 +673,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "paymentHistory" | "plans" | "user"
+      modelProps: "paymentHistory" | "plans" | "user" | "videoProgress" | "paymentSession"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -867,6 +899,154 @@ export namespace Prisma {
           }
         }
       }
+      VideoProgress: {
+        payload: Prisma.$VideoProgressPayload<ExtArgs>
+        fields: Prisma.VideoProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VideoProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VideoProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.VideoProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VideoProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          findMany: {
+            args: Prisma.VideoProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>[]
+          }
+          create: {
+            args: Prisma.VideoProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          createMany: {
+            args: Prisma.VideoProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VideoProgressCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>[]
+          }
+          delete: {
+            args: Prisma.VideoProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          update: {
+            args: Prisma.VideoProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.VideoProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VideoProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.VideoProgressUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>[]
+          }
+          upsert: {
+            args: Prisma.VideoProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.VideoProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVideoProgress>
+          }
+          groupBy: {
+            args: Prisma.VideoProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VideoProgressGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VideoProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<VideoProgressCountAggregateOutputType> | number
+          }
+        }
+      }
+      PaymentSession: {
+        payload: Prisma.$PaymentSessionPayload<ExtArgs>
+        fields: Prisma.PaymentSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PaymentSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PaymentSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.PaymentSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PaymentSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          findMany: {
+            args: Prisma.PaymentSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>[]
+          }
+          create: {
+            args: Prisma.PaymentSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          createMany: {
+            args: Prisma.PaymentSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PaymentSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.PaymentSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          update: {
+            args: Prisma.PaymentSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PaymentSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PaymentSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PaymentSessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.PaymentSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.PaymentSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePaymentSession>
+          }
+          groupBy: {
+            args: Prisma.PaymentSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PaymentSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PaymentSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<PaymentSessionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -954,6 +1134,8 @@ export namespace Prisma {
     paymentHistory?: PaymentHistoryOmit
     plans?: PlansOmit
     user?: UserOmit
+    videoProgress?: VideoProgressOmit
+    paymentSession?: PaymentSessionOmit
   }
 
   /* Types for Logging */
@@ -1080,10 +1262,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     paymentHistory: number
+    paymentSessions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     paymentHistory?: boolean | UserCountOutputTypeCountPaymentHistoryArgs
+    paymentSessions?: boolean | UserCountOutputTypeCountPaymentSessionsArgs
   }
 
   // Custom InputTypes
@@ -1102,6 +1286,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPaymentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PaymentHistoryWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPaymentSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentSessionWhereInput
   }
 
 
@@ -3271,6 +3462,9 @@ export namespace Prisma {
     cpf: string | null
     phone: string | null
     plan: string | null
+    subscriptionStatus: string | null
+    subscriptionType: string | null
+    subscriptionId: string | null
     createdAt: Date | null
   }
 
@@ -3282,6 +3476,9 @@ export namespace Prisma {
     cpf: string | null
     phone: string | null
     plan: string | null
+    subscriptionStatus: string | null
+    subscriptionType: string | null
+    subscriptionId: string | null
     createdAt: Date | null
   }
 
@@ -3293,6 +3490,9 @@ export namespace Prisma {
     cpf: number
     phone: number
     plan: number
+    subscriptionStatus: number
+    subscriptionType: number
+    subscriptionId: number
     createdAt: number
     _all: number
   }
@@ -3306,6 +3506,9 @@ export namespace Prisma {
     cpf?: true
     phone?: true
     plan?: true
+    subscriptionStatus?: true
+    subscriptionType?: true
+    subscriptionId?: true
     createdAt?: true
   }
 
@@ -3317,6 +3520,9 @@ export namespace Prisma {
     cpf?: true
     phone?: true
     plan?: true
+    subscriptionStatus?: true
+    subscriptionType?: true
+    subscriptionId?: true
     createdAt?: true
   }
 
@@ -3328,6 +3534,9 @@ export namespace Prisma {
     cpf?: true
     phone?: true
     plan?: true
+    subscriptionStatus?: true
+    subscriptionType?: true
+    subscriptionId?: true
     createdAt?: true
     _all?: true
   }
@@ -3412,6 +3621,9 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan: string
+    subscriptionStatus: string | null
+    subscriptionType: string | null
+    subscriptionId: string | null
     createdAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -3440,8 +3652,12 @@ export namespace Prisma {
     cpf?: boolean
     phone?: boolean
     plan?: boolean
+    subscriptionStatus?: boolean
+    subscriptionType?: boolean
+    subscriptionId?: boolean
     createdAt?: boolean
     paymentHistory?: boolean | User$paymentHistoryArgs<ExtArgs>
+    paymentSessions?: boolean | User$paymentSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3453,6 +3669,9 @@ export namespace Prisma {
     cpf?: boolean
     phone?: boolean
     plan?: boolean
+    subscriptionStatus?: boolean
+    subscriptionType?: boolean
+    subscriptionId?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -3464,6 +3683,9 @@ export namespace Prisma {
     cpf?: boolean
     phone?: boolean
     plan?: boolean
+    subscriptionStatus?: boolean
+    subscriptionType?: boolean
+    subscriptionId?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -3475,12 +3697,16 @@ export namespace Prisma {
     cpf?: boolean
     phone?: boolean
     plan?: boolean
+    subscriptionStatus?: boolean
+    subscriptionType?: boolean
+    subscriptionId?: boolean
     createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "cpf" | "phone" | "plan" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "cpf" | "phone" | "plan" | "subscriptionStatus" | "subscriptionType" | "subscriptionId" | "createdAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     paymentHistory?: boolean | User$paymentHistoryArgs<ExtArgs>
+    paymentSessions?: boolean | User$paymentSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3490,6 +3716,7 @@ export namespace Prisma {
     name: "User"
     objects: {
       paymentHistory: Prisma.$PaymentHistoryPayload<ExtArgs>[]
+      paymentSessions: Prisma.$PaymentSessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3499,6 +3726,9 @@ export namespace Prisma {
       cpf: string
       phone: string
       plan: string
+      subscriptionStatus: string | null
+      subscriptionType: string | null
+      subscriptionId: string | null
       createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -3895,6 +4125,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     paymentHistory<T extends User$paymentHistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentHistoryPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    paymentSessions<T extends User$paymentSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3931,6 +4162,9 @@ export namespace Prisma {
     readonly cpf: FieldRef<"User", 'String'>
     readonly phone: FieldRef<"User", 'String'>
     readonly plan: FieldRef<"User", 'String'>
+    readonly subscriptionStatus: FieldRef<"User", 'String'>
+    readonly subscriptionType: FieldRef<"User", 'String'>
+    readonly subscriptionId: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
@@ -4344,6 +4578,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.paymentSessions
+   */
+  export type User$paymentSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    where?: PaymentSessionWhereInput
+    orderBy?: PaymentSessionOrderByWithRelationInput | PaymentSessionOrderByWithRelationInput[]
+    cursor?: PaymentSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentSessionScalarFieldEnum | PaymentSessionScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4359,6 +4617,2164 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model VideoProgress
+   */
+
+  export type AggregateVideoProgress = {
+    _count: VideoProgressCountAggregateOutputType | null
+    _avg: VideoProgressAvgAggregateOutputType | null
+    _sum: VideoProgressSumAggregateOutputType | null
+    _min: VideoProgressMinAggregateOutputType | null
+    _max: VideoProgressMaxAggregateOutputType | null
+  }
+
+  export type VideoProgressAvgAggregateOutputType = {
+    progress: number | null
+  }
+
+  export type VideoProgressSumAggregateOutputType = {
+    progress: number | null
+  }
+
+  export type VideoProgressMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    videoId: string | null
+    progress: number | null
+    completed: boolean | null
+    updatedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type VideoProgressMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    videoId: string | null
+    progress: number | null
+    completed: boolean | null
+    updatedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type VideoProgressCountAggregateOutputType = {
+    id: number
+    userId: number
+    videoId: number
+    progress: number
+    completed: number
+    updatedAt: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type VideoProgressAvgAggregateInputType = {
+    progress?: true
+  }
+
+  export type VideoProgressSumAggregateInputType = {
+    progress?: true
+  }
+
+  export type VideoProgressMinAggregateInputType = {
+    id?: true
+    userId?: true
+    videoId?: true
+    progress?: true
+    completed?: true
+    updatedAt?: true
+    createdAt?: true
+  }
+
+  export type VideoProgressMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    videoId?: true
+    progress?: true
+    completed?: true
+    updatedAt?: true
+    createdAt?: true
+  }
+
+  export type VideoProgressCountAggregateInputType = {
+    id?: true
+    userId?: true
+    videoId?: true
+    progress?: true
+    completed?: true
+    updatedAt?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type VideoProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VideoProgress to aggregate.
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoProgresses to fetch.
+     */
+    orderBy?: VideoProgressOrderByWithRelationInput | VideoProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VideoProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned VideoProgresses
+    **/
+    _count?: true | VideoProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: VideoProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VideoProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VideoProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VideoProgressMaxAggregateInputType
+  }
+
+  export type GetVideoProgressAggregateType<T extends VideoProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateVideoProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVideoProgress[P]>
+      : GetScalarType<T[P], AggregateVideoProgress[P]>
+  }
+
+
+
+
+  export type VideoProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VideoProgressWhereInput
+    orderBy?: VideoProgressOrderByWithAggregationInput | VideoProgressOrderByWithAggregationInput[]
+    by: VideoProgressScalarFieldEnum[] | VideoProgressScalarFieldEnum
+    having?: VideoProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VideoProgressCountAggregateInputType | true
+    _avg?: VideoProgressAvgAggregateInputType
+    _sum?: VideoProgressSumAggregateInputType
+    _min?: VideoProgressMinAggregateInputType
+    _max?: VideoProgressMaxAggregateInputType
+  }
+
+  export type VideoProgressGroupByOutputType = {
+    id: string
+    userId: string
+    videoId: string
+    progress: number
+    completed: boolean
+    updatedAt: Date
+    createdAt: Date
+    _count: VideoProgressCountAggregateOutputType | null
+    _avg: VideoProgressAvgAggregateOutputType | null
+    _sum: VideoProgressSumAggregateOutputType | null
+    _min: VideoProgressMinAggregateOutputType | null
+    _max: VideoProgressMaxAggregateOutputType | null
+  }
+
+  type GetVideoProgressGroupByPayload<T extends VideoProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VideoProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VideoProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VideoProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], VideoProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VideoProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    videoId?: boolean
+    progress?: boolean
+    completed?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["videoProgress"]>
+
+  export type VideoProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    videoId?: boolean
+    progress?: boolean
+    completed?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["videoProgress"]>
+
+  export type VideoProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    videoId?: boolean
+    progress?: boolean
+    completed?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["videoProgress"]>
+
+  export type VideoProgressSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    videoId?: boolean
+    progress?: boolean
+    completed?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
+  }
+
+  export type VideoProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "videoId" | "progress" | "completed" | "updatedAt" | "createdAt", ExtArgs["result"]["videoProgress"]>
+
+  export type $VideoProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VideoProgress"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      videoId: string
+      progress: number
+      completed: boolean
+      updatedAt: Date
+      createdAt: Date
+    }, ExtArgs["result"]["videoProgress"]>
+    composites: {}
+  }
+
+  type VideoProgressGetPayload<S extends boolean | null | undefined | VideoProgressDefaultArgs> = $Result.GetResult<Prisma.$VideoProgressPayload, S>
+
+  type VideoProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VideoProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VideoProgressCountAggregateInputType | true
+    }
+
+  export interface VideoProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VideoProgress'], meta: { name: 'VideoProgress' } }
+    /**
+     * Find zero or one VideoProgress that matches the filter.
+     * @param {VideoProgressFindUniqueArgs} args - Arguments to find a VideoProgress
+     * @example
+     * // Get one VideoProgress
+     * const videoProgress = await prisma.videoProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VideoProgressFindUniqueArgs>(args: SelectSubset<T, VideoProgressFindUniqueArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one VideoProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VideoProgressFindUniqueOrThrowArgs} args - Arguments to find a VideoProgress
+     * @example
+     * // Get one VideoProgress
+     * const videoProgress = await prisma.videoProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VideoProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, VideoProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first VideoProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressFindFirstArgs} args - Arguments to find a VideoProgress
+     * @example
+     * // Get one VideoProgress
+     * const videoProgress = await prisma.videoProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VideoProgressFindFirstArgs>(args?: SelectSubset<T, VideoProgressFindFirstArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first VideoProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressFindFirstOrThrowArgs} args - Arguments to find a VideoProgress
+     * @example
+     * // Get one VideoProgress
+     * const videoProgress = await prisma.videoProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VideoProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, VideoProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more VideoProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all VideoProgresses
+     * const videoProgresses = await prisma.videoProgress.findMany()
+     * 
+     * // Get first 10 VideoProgresses
+     * const videoProgresses = await prisma.videoProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const videoProgressWithIdOnly = await prisma.videoProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VideoProgressFindManyArgs>(args?: SelectSubset<T, VideoProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a VideoProgress.
+     * @param {VideoProgressCreateArgs} args - Arguments to create a VideoProgress.
+     * @example
+     * // Create one VideoProgress
+     * const VideoProgress = await prisma.videoProgress.create({
+     *   data: {
+     *     // ... data to create a VideoProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends VideoProgressCreateArgs>(args: SelectSubset<T, VideoProgressCreateArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many VideoProgresses.
+     * @param {VideoProgressCreateManyArgs} args - Arguments to create many VideoProgresses.
+     * @example
+     * // Create many VideoProgresses
+     * const videoProgress = await prisma.videoProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VideoProgressCreateManyArgs>(args?: SelectSubset<T, VideoProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many VideoProgresses and returns the data saved in the database.
+     * @param {VideoProgressCreateManyAndReturnArgs} args - Arguments to create many VideoProgresses.
+     * @example
+     * // Create many VideoProgresses
+     * const videoProgress = await prisma.videoProgress.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many VideoProgresses and only return the `id`
+     * const videoProgressWithIdOnly = await prisma.videoProgress.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VideoProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, VideoProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a VideoProgress.
+     * @param {VideoProgressDeleteArgs} args - Arguments to delete one VideoProgress.
+     * @example
+     * // Delete one VideoProgress
+     * const VideoProgress = await prisma.videoProgress.delete({
+     *   where: {
+     *     // ... filter to delete one VideoProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VideoProgressDeleteArgs>(args: SelectSubset<T, VideoProgressDeleteArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one VideoProgress.
+     * @param {VideoProgressUpdateArgs} args - Arguments to update one VideoProgress.
+     * @example
+     * // Update one VideoProgress
+     * const videoProgress = await prisma.videoProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VideoProgressUpdateArgs>(args: SelectSubset<T, VideoProgressUpdateArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more VideoProgresses.
+     * @param {VideoProgressDeleteManyArgs} args - Arguments to filter VideoProgresses to delete.
+     * @example
+     * // Delete a few VideoProgresses
+     * const { count } = await prisma.videoProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VideoProgressDeleteManyArgs>(args?: SelectSubset<T, VideoProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VideoProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many VideoProgresses
+     * const videoProgress = await prisma.videoProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VideoProgressUpdateManyArgs>(args: SelectSubset<T, VideoProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VideoProgresses and returns the data updated in the database.
+     * @param {VideoProgressUpdateManyAndReturnArgs} args - Arguments to update many VideoProgresses.
+     * @example
+     * // Update many VideoProgresses
+     * const videoProgress = await prisma.videoProgress.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more VideoProgresses and only return the `id`
+     * const videoProgressWithIdOnly = await prisma.videoProgress.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends VideoProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, VideoProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one VideoProgress.
+     * @param {VideoProgressUpsertArgs} args - Arguments to update or create a VideoProgress.
+     * @example
+     * // Update or create a VideoProgress
+     * const videoProgress = await prisma.videoProgress.upsert({
+     *   create: {
+     *     // ... data to create a VideoProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the VideoProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VideoProgressUpsertArgs>(args: SelectSubset<T, VideoProgressUpsertArgs<ExtArgs>>): Prisma__VideoProgressClient<$Result.GetResult<Prisma.$VideoProgressPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of VideoProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressCountArgs} args - Arguments to filter VideoProgresses to count.
+     * @example
+     * // Count the number of VideoProgresses
+     * const count = await prisma.videoProgress.count({
+     *   where: {
+     *     // ... the filter for the VideoProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends VideoProgressCountArgs>(
+      args?: Subset<T, VideoProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VideoProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a VideoProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VideoProgressAggregateArgs>(args: Subset<T, VideoProgressAggregateArgs>): Prisma.PrismaPromise<GetVideoProgressAggregateType<T>>
+
+    /**
+     * Group by VideoProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VideoProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VideoProgressGroupByArgs['orderBy'] }
+        : { orderBy?: VideoProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VideoProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVideoProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the VideoProgress model
+   */
+  readonly fields: VideoProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for VideoProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VideoProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the VideoProgress model
+   */ 
+  interface VideoProgressFieldRefs {
+    readonly id: FieldRef<"VideoProgress", 'String'>
+    readonly userId: FieldRef<"VideoProgress", 'String'>
+    readonly videoId: FieldRef<"VideoProgress", 'String'>
+    readonly progress: FieldRef<"VideoProgress", 'Float'>
+    readonly completed: FieldRef<"VideoProgress", 'Boolean'>
+    readonly updatedAt: FieldRef<"VideoProgress", 'DateTime'>
+    readonly createdAt: FieldRef<"VideoProgress", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * VideoProgress findUnique
+   */
+  export type VideoProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter, which VideoProgress to fetch.
+     */
+    where: VideoProgressWhereUniqueInput
+  }
+
+  /**
+   * VideoProgress findUniqueOrThrow
+   */
+  export type VideoProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter, which VideoProgress to fetch.
+     */
+    where: VideoProgressWhereUniqueInput
+  }
+
+  /**
+   * VideoProgress findFirst
+   */
+  export type VideoProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter, which VideoProgress to fetch.
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoProgresses to fetch.
+     */
+    orderBy?: VideoProgressOrderByWithRelationInput | VideoProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VideoProgresses.
+     */
+    cursor?: VideoProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VideoProgresses.
+     */
+    distinct?: VideoProgressScalarFieldEnum | VideoProgressScalarFieldEnum[]
+  }
+
+  /**
+   * VideoProgress findFirstOrThrow
+   */
+  export type VideoProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter, which VideoProgress to fetch.
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoProgresses to fetch.
+     */
+    orderBy?: VideoProgressOrderByWithRelationInput | VideoProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VideoProgresses.
+     */
+    cursor?: VideoProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VideoProgresses.
+     */
+    distinct?: VideoProgressScalarFieldEnum | VideoProgressScalarFieldEnum[]
+  }
+
+  /**
+   * VideoProgress findMany
+   */
+  export type VideoProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter, which VideoProgresses to fetch.
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoProgresses to fetch.
+     */
+    orderBy?: VideoProgressOrderByWithRelationInput | VideoProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing VideoProgresses.
+     */
+    cursor?: VideoProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoProgresses.
+     */
+    skip?: number
+    distinct?: VideoProgressScalarFieldEnum | VideoProgressScalarFieldEnum[]
+  }
+
+  /**
+   * VideoProgress create
+   */
+  export type VideoProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * The data needed to create a VideoProgress.
+     */
+    data: XOR<VideoProgressCreateInput, VideoProgressUncheckedCreateInput>
+  }
+
+  /**
+   * VideoProgress createMany
+   */
+  export type VideoProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many VideoProgresses.
+     */
+    data: VideoProgressCreateManyInput | VideoProgressCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VideoProgress createManyAndReturn
+   */
+  export type VideoProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * The data used to create many VideoProgresses.
+     */
+    data: VideoProgressCreateManyInput | VideoProgressCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VideoProgress update
+   */
+  export type VideoProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * The data needed to update a VideoProgress.
+     */
+    data: XOR<VideoProgressUpdateInput, VideoProgressUncheckedUpdateInput>
+    /**
+     * Choose, which VideoProgress to update.
+     */
+    where: VideoProgressWhereUniqueInput
+  }
+
+  /**
+   * VideoProgress updateMany
+   */
+  export type VideoProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update VideoProgresses.
+     */
+    data: XOR<VideoProgressUpdateManyMutationInput, VideoProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which VideoProgresses to update
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * Limit how many VideoProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VideoProgress updateManyAndReturn
+   */
+  export type VideoProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * The data used to update VideoProgresses.
+     */
+    data: XOR<VideoProgressUpdateManyMutationInput, VideoProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which VideoProgresses to update
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * Limit how many VideoProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VideoProgress upsert
+   */
+  export type VideoProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * The filter to search for the VideoProgress to update in case it exists.
+     */
+    where: VideoProgressWhereUniqueInput
+    /**
+     * In case the VideoProgress found by the `where` argument doesn't exist, create a new VideoProgress with this data.
+     */
+    create: XOR<VideoProgressCreateInput, VideoProgressUncheckedCreateInput>
+    /**
+     * In case the VideoProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VideoProgressUpdateInput, VideoProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * VideoProgress delete
+   */
+  export type VideoProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+    /**
+     * Filter which VideoProgress to delete.
+     */
+    where: VideoProgressWhereUniqueInput
+  }
+
+  /**
+   * VideoProgress deleteMany
+   */
+  export type VideoProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VideoProgresses to delete
+     */
+    where?: VideoProgressWhereInput
+    /**
+     * Limit how many VideoProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * VideoProgress without action
+   */
+  export type VideoProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoProgress
+     */
+    select?: VideoProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoProgress
+     */
+    omit?: VideoProgressOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PaymentSession
+   */
+
+  export type AggregatePaymentSession = {
+    _count: PaymentSessionCountAggregateOutputType | null
+    _min: PaymentSessionMinAggregateOutputType | null
+    _max: PaymentSessionMaxAggregateOutputType | null
+  }
+
+  export type PaymentSessionMinAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    userId: string | null
+    priceId: string | null
+    planType: string | null
+    status: string | null
+    createdAt: Date | null
+  }
+
+  export type PaymentSessionMaxAggregateOutputType = {
+    id: string | null
+    sessionId: string | null
+    userId: string | null
+    priceId: string | null
+    planType: string | null
+    status: string | null
+    createdAt: Date | null
+  }
+
+  export type PaymentSessionCountAggregateOutputType = {
+    id: number
+    sessionId: number
+    userId: number
+    priceId: number
+    planType: number
+    status: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type PaymentSessionMinAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    priceId?: true
+    planType?: true
+    status?: true
+    createdAt?: true
+  }
+
+  export type PaymentSessionMaxAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    priceId?: true
+    planType?: true
+    status?: true
+    createdAt?: true
+  }
+
+  export type PaymentSessionCountAggregateInputType = {
+    id?: true
+    sessionId?: true
+    userId?: true
+    priceId?: true
+    planType?: true
+    status?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type PaymentSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PaymentSession to aggregate.
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentSessions to fetch.
+     */
+    orderBy?: PaymentSessionOrderByWithRelationInput | PaymentSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PaymentSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PaymentSessions
+    **/
+    _count?: true | PaymentSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PaymentSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PaymentSessionMaxAggregateInputType
+  }
+
+  export type GetPaymentSessionAggregateType<T extends PaymentSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePaymentSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePaymentSession[P]>
+      : GetScalarType<T[P], AggregatePaymentSession[P]>
+  }
+
+
+
+
+  export type PaymentSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentSessionWhereInput
+    orderBy?: PaymentSessionOrderByWithAggregationInput | PaymentSessionOrderByWithAggregationInput[]
+    by: PaymentSessionScalarFieldEnum[] | PaymentSessionScalarFieldEnum
+    having?: PaymentSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PaymentSessionCountAggregateInputType | true
+    _min?: PaymentSessionMinAggregateInputType
+    _max?: PaymentSessionMaxAggregateInputType
+  }
+
+  export type PaymentSessionGroupByOutputType = {
+    id: string
+    sessionId: string
+    userId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt: Date
+    _count: PaymentSessionCountAggregateOutputType | null
+    _min: PaymentSessionMinAggregateOutputType | null
+    _max: PaymentSessionMaxAggregateOutputType | null
+  }
+
+  type GetPaymentSessionGroupByPayload<T extends PaymentSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PaymentSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PaymentSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PaymentSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], PaymentSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PaymentSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    priceId?: boolean
+    planType?: boolean
+    status?: boolean
+    createdAt?: boolean
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }, ExtArgs["result"]["paymentSession"]>
+
+  export type PaymentSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    priceId?: boolean
+    planType?: boolean
+    status?: boolean
+    createdAt?: boolean
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }, ExtArgs["result"]["paymentSession"]>
+
+  export type PaymentSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    priceId?: boolean
+    planType?: boolean
+    status?: boolean
+    createdAt?: boolean
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }, ExtArgs["result"]["paymentSession"]>
+
+  export type PaymentSessionSelectScalar = {
+    id?: boolean
+    sessionId?: boolean
+    userId?: boolean
+    priceId?: boolean
+    planType?: boolean
+    status?: boolean
+    createdAt?: boolean
+  }
+
+  export type PaymentSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionId" | "userId" | "priceId" | "planType" | "status" | "createdAt", ExtArgs["result"]["paymentSession"]>
+  export type PaymentSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }
+  export type PaymentSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }
+  export type PaymentSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | PaymentSession$userArgs<ExtArgs>
+  }
+
+  export type $PaymentSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PaymentSession"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sessionId: string
+      userId: string
+      priceId: string
+      planType: string
+      status: string
+      createdAt: Date
+    }, ExtArgs["result"]["paymentSession"]>
+    composites: {}
+  }
+
+  type PaymentSessionGetPayload<S extends boolean | null | undefined | PaymentSessionDefaultArgs> = $Result.GetResult<Prisma.$PaymentSessionPayload, S>
+
+  type PaymentSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PaymentSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PaymentSessionCountAggregateInputType | true
+    }
+
+  export interface PaymentSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PaymentSession'], meta: { name: 'PaymentSession' } }
+    /**
+     * Find zero or one PaymentSession that matches the filter.
+     * @param {PaymentSessionFindUniqueArgs} args - Arguments to find a PaymentSession
+     * @example
+     * // Get one PaymentSession
+     * const paymentSession = await prisma.paymentSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PaymentSessionFindUniqueArgs>(args: SelectSubset<T, PaymentSessionFindUniqueArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PaymentSession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PaymentSessionFindUniqueOrThrowArgs} args - Arguments to find a PaymentSession
+     * @example
+     * // Get one PaymentSession
+     * const paymentSession = await prisma.paymentSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PaymentSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, PaymentSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PaymentSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionFindFirstArgs} args - Arguments to find a PaymentSession
+     * @example
+     * // Get one PaymentSession
+     * const paymentSession = await prisma.paymentSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PaymentSessionFindFirstArgs>(args?: SelectSubset<T, PaymentSessionFindFirstArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PaymentSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionFindFirstOrThrowArgs} args - Arguments to find a PaymentSession
+     * @example
+     * // Get one PaymentSession
+     * const paymentSession = await prisma.paymentSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PaymentSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, PaymentSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PaymentSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PaymentSessions
+     * const paymentSessions = await prisma.paymentSession.findMany()
+     * 
+     * // Get first 10 PaymentSessions
+     * const paymentSessions = await prisma.paymentSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const paymentSessionWithIdOnly = await prisma.paymentSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PaymentSessionFindManyArgs>(args?: SelectSubset<T, PaymentSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PaymentSession.
+     * @param {PaymentSessionCreateArgs} args - Arguments to create a PaymentSession.
+     * @example
+     * // Create one PaymentSession
+     * const PaymentSession = await prisma.paymentSession.create({
+     *   data: {
+     *     // ... data to create a PaymentSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends PaymentSessionCreateArgs>(args: SelectSubset<T, PaymentSessionCreateArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PaymentSessions.
+     * @param {PaymentSessionCreateManyArgs} args - Arguments to create many PaymentSessions.
+     * @example
+     * // Create many PaymentSessions
+     * const paymentSession = await prisma.paymentSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PaymentSessionCreateManyArgs>(args?: SelectSubset<T, PaymentSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PaymentSessions and returns the data saved in the database.
+     * @param {PaymentSessionCreateManyAndReturnArgs} args - Arguments to create many PaymentSessions.
+     * @example
+     * // Create many PaymentSessions
+     * const paymentSession = await prisma.paymentSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PaymentSessions and only return the `id`
+     * const paymentSessionWithIdOnly = await prisma.paymentSession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PaymentSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, PaymentSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PaymentSession.
+     * @param {PaymentSessionDeleteArgs} args - Arguments to delete one PaymentSession.
+     * @example
+     * // Delete one PaymentSession
+     * const PaymentSession = await prisma.paymentSession.delete({
+     *   where: {
+     *     // ... filter to delete one PaymentSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PaymentSessionDeleteArgs>(args: SelectSubset<T, PaymentSessionDeleteArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PaymentSession.
+     * @param {PaymentSessionUpdateArgs} args - Arguments to update one PaymentSession.
+     * @example
+     * // Update one PaymentSession
+     * const paymentSession = await prisma.paymentSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PaymentSessionUpdateArgs>(args: SelectSubset<T, PaymentSessionUpdateArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PaymentSessions.
+     * @param {PaymentSessionDeleteManyArgs} args - Arguments to filter PaymentSessions to delete.
+     * @example
+     * // Delete a few PaymentSessions
+     * const { count } = await prisma.paymentSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PaymentSessionDeleteManyArgs>(args?: SelectSubset<T, PaymentSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PaymentSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PaymentSessions
+     * const paymentSession = await prisma.paymentSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PaymentSessionUpdateManyArgs>(args: SelectSubset<T, PaymentSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PaymentSessions and returns the data updated in the database.
+     * @param {PaymentSessionUpdateManyAndReturnArgs} args - Arguments to update many PaymentSessions.
+     * @example
+     * // Update many PaymentSessions
+     * const paymentSession = await prisma.paymentSession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PaymentSessions and only return the `id`
+     * const paymentSessionWithIdOnly = await prisma.paymentSession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PaymentSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, PaymentSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PaymentSession.
+     * @param {PaymentSessionUpsertArgs} args - Arguments to update or create a PaymentSession.
+     * @example
+     * // Update or create a PaymentSession
+     * const paymentSession = await prisma.paymentSession.upsert({
+     *   create: {
+     *     // ... data to create a PaymentSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PaymentSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PaymentSessionUpsertArgs>(args: SelectSubset<T, PaymentSessionUpsertArgs<ExtArgs>>): Prisma__PaymentSessionClient<$Result.GetResult<Prisma.$PaymentSessionPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PaymentSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionCountArgs} args - Arguments to filter PaymentSessions to count.
+     * @example
+     * // Count the number of PaymentSessions
+     * const count = await prisma.paymentSession.count({
+     *   where: {
+     *     // ... the filter for the PaymentSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends PaymentSessionCountArgs>(
+      args?: Subset<T, PaymentSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PaymentSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PaymentSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PaymentSessionAggregateArgs>(args: Subset<T, PaymentSessionAggregateArgs>): Prisma.PrismaPromise<GetPaymentSessionAggregateType<T>>
+
+    /**
+     * Group by PaymentSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PaymentSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PaymentSessionGroupByArgs['orderBy'] }
+        : { orderBy?: PaymentSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PaymentSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPaymentSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PaymentSession model
+   */
+  readonly fields: PaymentSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PaymentSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PaymentSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends PaymentSession$userArgs<ExtArgs> = {}>(args?: Subset<T, PaymentSession$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PaymentSession model
+   */ 
+  interface PaymentSessionFieldRefs {
+    readonly id: FieldRef<"PaymentSession", 'String'>
+    readonly sessionId: FieldRef<"PaymentSession", 'String'>
+    readonly userId: FieldRef<"PaymentSession", 'String'>
+    readonly priceId: FieldRef<"PaymentSession", 'String'>
+    readonly planType: FieldRef<"PaymentSession", 'String'>
+    readonly status: FieldRef<"PaymentSession", 'String'>
+    readonly createdAt: FieldRef<"PaymentSession", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PaymentSession findUnique
+   */
+  export type PaymentSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentSession to fetch.
+     */
+    where: PaymentSessionWhereUniqueInput
+  }
+
+  /**
+   * PaymentSession findUniqueOrThrow
+   */
+  export type PaymentSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentSession to fetch.
+     */
+    where: PaymentSessionWhereUniqueInput
+  }
+
+  /**
+   * PaymentSession findFirst
+   */
+  export type PaymentSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentSession to fetch.
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentSessions to fetch.
+     */
+    orderBy?: PaymentSessionOrderByWithRelationInput | PaymentSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PaymentSessions.
+     */
+    cursor?: PaymentSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PaymentSessions.
+     */
+    distinct?: PaymentSessionScalarFieldEnum | PaymentSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentSession findFirstOrThrow
+   */
+  export type PaymentSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentSession to fetch.
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentSessions to fetch.
+     */
+    orderBy?: PaymentSessionOrderByWithRelationInput | PaymentSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PaymentSessions.
+     */
+    cursor?: PaymentSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PaymentSessions.
+     */
+    distinct?: PaymentSessionScalarFieldEnum | PaymentSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentSession findMany
+   */
+  export type PaymentSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentSessions to fetch.
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentSessions to fetch.
+     */
+    orderBy?: PaymentSessionOrderByWithRelationInput | PaymentSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PaymentSessions.
+     */
+    cursor?: PaymentSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentSessions.
+     */
+    skip?: number
+    distinct?: PaymentSessionScalarFieldEnum | PaymentSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentSession create
+   */
+  export type PaymentSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PaymentSession.
+     */
+    data: XOR<PaymentSessionCreateInput, PaymentSessionUncheckedCreateInput>
+  }
+
+  /**
+   * PaymentSession createMany
+   */
+  export type PaymentSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PaymentSessions.
+     */
+    data: PaymentSessionCreateManyInput | PaymentSessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PaymentSession createManyAndReturn
+   */
+  export type PaymentSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many PaymentSessions.
+     */
+    data: PaymentSessionCreateManyInput | PaymentSessionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PaymentSession update
+   */
+  export type PaymentSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PaymentSession.
+     */
+    data: XOR<PaymentSessionUpdateInput, PaymentSessionUncheckedUpdateInput>
+    /**
+     * Choose, which PaymentSession to update.
+     */
+    where: PaymentSessionWhereUniqueInput
+  }
+
+  /**
+   * PaymentSession updateMany
+   */
+  export type PaymentSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PaymentSessions.
+     */
+    data: XOR<PaymentSessionUpdateManyMutationInput, PaymentSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which PaymentSessions to update
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * Limit how many PaymentSessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PaymentSession updateManyAndReturn
+   */
+  export type PaymentSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * The data used to update PaymentSessions.
+     */
+    data: XOR<PaymentSessionUpdateManyMutationInput, PaymentSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which PaymentSessions to update
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * Limit how many PaymentSessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PaymentSession upsert
+   */
+  export type PaymentSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PaymentSession to update in case it exists.
+     */
+    where: PaymentSessionWhereUniqueInput
+    /**
+     * In case the PaymentSession found by the `where` argument doesn't exist, create a new PaymentSession with this data.
+     */
+    create: XOR<PaymentSessionCreateInput, PaymentSessionUncheckedCreateInput>
+    /**
+     * In case the PaymentSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PaymentSessionUpdateInput, PaymentSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * PaymentSession delete
+   */
+  export type PaymentSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
+    /**
+     * Filter which PaymentSession to delete.
+     */
+    where: PaymentSessionWhereUniqueInput
+  }
+
+  /**
+   * PaymentSession deleteMany
+   */
+  export type PaymentSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PaymentSessions to delete
+     */
+    where?: PaymentSessionWhereInput
+    /**
+     * Limit how many PaymentSessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PaymentSession.user
+   */
+  export type PaymentSession$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * PaymentSession without action
+   */
+  export type PaymentSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSession
+     */
+    select?: PaymentSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PaymentSession
+     */
+    omit?: PaymentSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentSessionInclude<ExtArgs> | null
   }
 
 
@@ -4404,10 +6820,39 @@ export namespace Prisma {
     cpf: 'cpf',
     phone: 'phone',
     plan: 'plan',
+    subscriptionStatus: 'subscriptionStatus',
+    subscriptionType: 'subscriptionType',
+    subscriptionId: 'subscriptionId',
     createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const VideoProgressScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    videoId: 'videoId',
+    progress: 'progress',
+    completed: 'completed',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
+  };
+
+  export type VideoProgressScalarFieldEnum = (typeof VideoProgressScalarFieldEnum)[keyof typeof VideoProgressScalarFieldEnum]
+
+
+  export const PaymentSessionScalarFieldEnum: {
+    id: 'id',
+    sessionId: 'sessionId',
+    userId: 'userId',
+    priceId: 'priceId',
+    planType: 'planType',
+    status: 'status',
+    createdAt: 'createdAt'
+  };
+
+  export type PaymentSessionScalarFieldEnum = (typeof PaymentSessionScalarFieldEnum)[keyof typeof PaymentSessionScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4424,6 +6869,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -4470,6 +6923,27 @@ export namespace Prisma {
    * Reference to a field of type 'Decimal[]'
    */
   export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4606,8 +7080,12 @@ export namespace Prisma {
     cpf?: StringFilter<"User"> | string
     phone?: StringFilter<"User"> | string
     plan?: StringFilter<"User"> | string
+    subscriptionStatus?: StringNullableFilter<"User"> | string | null
+    subscriptionType?: StringNullableFilter<"User"> | string | null
+    subscriptionId?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     paymentHistory?: PaymentHistoryListRelationFilter
+    paymentSessions?: PaymentSessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4618,8 +7096,12 @@ export namespace Prisma {
     cpf?: SortOrder
     phone?: SortOrder
     plan?: SortOrder
+    subscriptionStatus?: SortOrderInput | SortOrder
+    subscriptionType?: SortOrderInput | SortOrder
+    subscriptionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     paymentHistory?: PaymentHistoryOrderByRelationAggregateInput
+    paymentSessions?: PaymentSessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4633,8 +7115,12 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     phone?: StringFilter<"User"> | string
     plan?: StringFilter<"User"> | string
+    subscriptionStatus?: StringNullableFilter<"User"> | string | null
+    subscriptionType?: StringNullableFilter<"User"> | string | null
+    subscriptionId?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     paymentHistory?: PaymentHistoryListRelationFilter
+    paymentSessions?: PaymentSessionListRelationFilter
   }, "id" | "email" | "cpf">
 
   export type UserOrderByWithAggregationInput = {
@@ -4645,6 +7131,9 @@ export namespace Prisma {
     cpf?: SortOrder
     phone?: SortOrder
     plan?: SortOrder
+    subscriptionStatus?: SortOrderInput | SortOrder
+    subscriptionType?: SortOrderInput | SortOrder
+    subscriptionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -4662,7 +7151,140 @@ export namespace Prisma {
     cpf?: StringWithAggregatesFilter<"User"> | string
     phone?: StringWithAggregatesFilter<"User"> | string
     plan?: StringWithAggregatesFilter<"User"> | string
+    subscriptionStatus?: StringNullableWithAggregatesFilter<"User"> | string | null
+    subscriptionType?: StringNullableWithAggregatesFilter<"User"> | string | null
+    subscriptionId?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type VideoProgressWhereInput = {
+    AND?: VideoProgressWhereInput | VideoProgressWhereInput[]
+    OR?: VideoProgressWhereInput[]
+    NOT?: VideoProgressWhereInput | VideoProgressWhereInput[]
+    id?: StringFilter<"VideoProgress"> | string
+    userId?: StringFilter<"VideoProgress"> | string
+    videoId?: StringFilter<"VideoProgress"> | string
+    progress?: FloatFilter<"VideoProgress"> | number
+    completed?: BoolFilter<"VideoProgress"> | boolean
+    updatedAt?: DateTimeFilter<"VideoProgress"> | Date | string
+    createdAt?: DateTimeFilter<"VideoProgress"> | Date | string
+  }
+
+  export type VideoProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    videoId?: SortOrder
+    progress?: SortOrder
+    completed?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_videoId?: VideoProgressUserIdVideoIdCompoundUniqueInput
+    AND?: VideoProgressWhereInput | VideoProgressWhereInput[]
+    OR?: VideoProgressWhereInput[]
+    NOT?: VideoProgressWhereInput | VideoProgressWhereInput[]
+    userId?: StringFilter<"VideoProgress"> | string
+    videoId?: StringFilter<"VideoProgress"> | string
+    progress?: FloatFilter<"VideoProgress"> | number
+    completed?: BoolFilter<"VideoProgress"> | boolean
+    updatedAt?: DateTimeFilter<"VideoProgress"> | Date | string
+    createdAt?: DateTimeFilter<"VideoProgress"> | Date | string
+  }, "id" | "userId_videoId">
+
+  export type VideoProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    videoId?: SortOrder
+    progress?: SortOrder
+    completed?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+    _count?: VideoProgressCountOrderByAggregateInput
+    _avg?: VideoProgressAvgOrderByAggregateInput
+    _max?: VideoProgressMaxOrderByAggregateInput
+    _min?: VideoProgressMinOrderByAggregateInput
+    _sum?: VideoProgressSumOrderByAggregateInput
+  }
+
+  export type VideoProgressScalarWhereWithAggregatesInput = {
+    AND?: VideoProgressScalarWhereWithAggregatesInput | VideoProgressScalarWhereWithAggregatesInput[]
+    OR?: VideoProgressScalarWhereWithAggregatesInput[]
+    NOT?: VideoProgressScalarWhereWithAggregatesInput | VideoProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"VideoProgress"> | string
+    userId?: StringWithAggregatesFilter<"VideoProgress"> | string
+    videoId?: StringWithAggregatesFilter<"VideoProgress"> | string
+    progress?: FloatWithAggregatesFilter<"VideoProgress"> | number
+    completed?: BoolWithAggregatesFilter<"VideoProgress"> | boolean
+    updatedAt?: DateTimeWithAggregatesFilter<"VideoProgress"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"VideoProgress"> | Date | string
+  }
+
+  export type PaymentSessionWhereInput = {
+    AND?: PaymentSessionWhereInput | PaymentSessionWhereInput[]
+    OR?: PaymentSessionWhereInput[]
+    NOT?: PaymentSessionWhereInput | PaymentSessionWhereInput[]
+    id?: StringFilter<"PaymentSession"> | string
+    sessionId?: StringFilter<"PaymentSession"> | string
+    userId?: StringFilter<"PaymentSession"> | string
+    priceId?: StringFilter<"PaymentSession"> | string
+    planType?: StringFilter<"PaymentSession"> | string
+    status?: StringFilter<"PaymentSession"> | string
+    createdAt?: DateTimeFilter<"PaymentSession"> | Date | string
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type PaymentSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    priceId?: SortOrder
+    planType?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type PaymentSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sessionId?: string
+    AND?: PaymentSessionWhereInput | PaymentSessionWhereInput[]
+    OR?: PaymentSessionWhereInput[]
+    NOT?: PaymentSessionWhereInput | PaymentSessionWhereInput[]
+    userId?: StringFilter<"PaymentSession"> | string
+    priceId?: StringFilter<"PaymentSession"> | string
+    planType?: StringFilter<"PaymentSession"> | string
+    status?: StringFilter<"PaymentSession"> | string
+    createdAt?: DateTimeFilter<"PaymentSession"> | Date | string
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id" | "sessionId">
+
+  export type PaymentSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    priceId?: SortOrder
+    planType?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    _count?: PaymentSessionCountOrderByAggregateInput
+    _max?: PaymentSessionMaxOrderByAggregateInput
+    _min?: PaymentSessionMinOrderByAggregateInput
+  }
+
+  export type PaymentSessionScalarWhereWithAggregatesInput = {
+    AND?: PaymentSessionScalarWhereWithAggregatesInput | PaymentSessionScalarWhereWithAggregatesInput[]
+    OR?: PaymentSessionScalarWhereWithAggregatesInput[]
+    NOT?: PaymentSessionScalarWhereWithAggregatesInput | PaymentSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PaymentSession"> | string
+    sessionId?: StringWithAggregatesFilter<"PaymentSession"> | string
+    userId?: StringWithAggregatesFilter<"PaymentSession"> | string
+    priceId?: StringWithAggregatesFilter<"PaymentSession"> | string
+    planType?: StringWithAggregatesFilter<"PaymentSession"> | string
+    status?: StringWithAggregatesFilter<"PaymentSession"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PaymentSession"> | Date | string
   }
 
   export type PaymentHistoryCreateInput = {
@@ -4773,8 +7395,12 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
     createdAt?: Date | string
     paymentHistory?: PaymentHistoryCreateNestedManyWithoutUserInput
+    paymentSessions?: PaymentSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -4785,8 +7411,12 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
     createdAt?: Date | string
     paymentHistory?: PaymentHistoryUncheckedCreateNestedManyWithoutUserInput
+    paymentSessions?: PaymentSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -4797,8 +7427,12 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentHistory?: PaymentHistoryUpdateManyWithoutUserNestedInput
+    paymentSessions?: PaymentSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4809,8 +7443,12 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentHistory?: PaymentHistoryUncheckedUpdateManyWithoutUserNestedInput
+    paymentSessions?: PaymentSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -4821,6 +7459,9 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
     createdAt?: Date | string
   }
 
@@ -4832,6 +7473,9 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4843,6 +7487,148 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoProgressCreateInput = {
+    id?: string
+    userId: string
+    videoId: string
+    progress: number
+    completed?: boolean
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type VideoProgressUncheckedCreateInput = {
+    id?: string
+    userId: string
+    videoId: string
+    progress: number
+    completed?: boolean
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type VideoProgressUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    videoId?: StringFieldUpdateOperationsInput | string
+    progress?: FloatFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoProgressUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    videoId?: StringFieldUpdateOperationsInput | string
+    progress?: FloatFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoProgressCreateManyInput = {
+    id?: string
+    userId: string
+    videoId: string
+    progress: number
+    completed?: boolean
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type VideoProgressUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    videoId?: StringFieldUpdateOperationsInput | string
+    progress?: FloatFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoProgressUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    videoId?: StringFieldUpdateOperationsInput | string
+    progress?: FloatFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionCreateInput = {
+    id?: string
+    sessionId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+    user?: UserCreateNestedOneWithoutPaymentSessionsInput
+  }
+
+  export type PaymentSessionUncheckedCreateInput = {
+    id?: string
+    sessionId: string
+    userId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+  }
+
+  export type PaymentSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutPaymentSessionsNestedInput
+  }
+
+  export type PaymentSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionCreateManyInput = {
+    id?: string
+    sessionId: string
+    userId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+  }
+
+  export type PaymentSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5001,6 +7787,36 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type PaymentSessionListRelationFilter = {
+    every?: PaymentSessionWhereInput
+    some?: PaymentSessionWhereInput
+    none?: PaymentSessionWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type PaymentSessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -5009,6 +7825,9 @@ export namespace Prisma {
     cpf?: SortOrder
     phone?: SortOrder
     plan?: SortOrder
+    subscriptionStatus?: SortOrder
+    subscriptionType?: SortOrder
+    subscriptionId?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5020,6 +7839,9 @@ export namespace Prisma {
     cpf?: SortOrder
     phone?: SortOrder
     plan?: SortOrder
+    subscriptionStatus?: SortOrder
+    subscriptionType?: SortOrder
+    subscriptionId?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5031,6 +7853,145 @@ export namespace Prisma {
     cpf?: SortOrder
     phone?: SortOrder
     plan?: SortOrder
+    subscriptionStatus?: SortOrder
+    subscriptionType?: SortOrder
+    subscriptionId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type VideoProgressUserIdVideoIdCompoundUniqueInput = {
+    userId: string
+    videoId: string
+  }
+
+  export type VideoProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    videoId?: SortOrder
+    progress?: SortOrder
+    completed?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoProgressAvgOrderByAggregateInput = {
+    progress?: SortOrder
+  }
+
+  export type VideoProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    videoId?: SortOrder
+    progress?: SortOrder
+    completed?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    videoId?: SortOrder
+    progress?: SortOrder
+    completed?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoProgressSumOrderByAggregateInput = {
+    progress?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type PaymentSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    priceId?: SortOrder
+    planType?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PaymentSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    priceId?: SortOrder
+    planType?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PaymentSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionId?: SortOrder
+    userId?: SortOrder
+    priceId?: SortOrder
+    planType?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5127,11 +8088,29 @@ export namespace Prisma {
     connect?: PaymentHistoryWhereUniqueInput | PaymentHistoryWhereUniqueInput[]
   }
 
+  export type PaymentSessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput> | PaymentSessionCreateWithoutUserInput[] | PaymentSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentSessionCreateOrConnectWithoutUserInput | PaymentSessionCreateOrConnectWithoutUserInput[]
+    createMany?: PaymentSessionCreateManyUserInputEnvelope
+    connect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+  }
+
   export type PaymentHistoryUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<PaymentHistoryCreateWithoutUserInput, PaymentHistoryUncheckedCreateWithoutUserInput> | PaymentHistoryCreateWithoutUserInput[] | PaymentHistoryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentHistoryCreateOrConnectWithoutUserInput | PaymentHistoryCreateOrConnectWithoutUserInput[]
     createMany?: PaymentHistoryCreateManyUserInputEnvelope
     connect?: PaymentHistoryWhereUniqueInput | PaymentHistoryWhereUniqueInput[]
+  }
+
+  export type PaymentSessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput> | PaymentSessionCreateWithoutUserInput[] | PaymentSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentSessionCreateOrConnectWithoutUserInput | PaymentSessionCreateOrConnectWithoutUserInput[]
+    createMany?: PaymentSessionCreateManyUserInputEnvelope
+    connect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type PaymentHistoryUpdateManyWithoutUserNestedInput = {
@@ -5148,6 +8127,20 @@ export namespace Prisma {
     deleteMany?: PaymentHistoryScalarWhereInput | PaymentHistoryScalarWhereInput[]
   }
 
+  export type PaymentSessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput> | PaymentSessionCreateWithoutUserInput[] | PaymentSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentSessionCreateOrConnectWithoutUserInput | PaymentSessionCreateOrConnectWithoutUserInput[]
+    upsert?: PaymentSessionUpsertWithWhereUniqueWithoutUserInput | PaymentSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PaymentSessionCreateManyUserInputEnvelope
+    set?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    disconnect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    delete?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    connect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    update?: PaymentSessionUpdateWithWhereUniqueWithoutUserInput | PaymentSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PaymentSessionUpdateManyWithWhereWithoutUserInput | PaymentSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PaymentSessionScalarWhereInput | PaymentSessionScalarWhereInput[]
+  }
+
   export type PaymentHistoryUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<PaymentHistoryCreateWithoutUserInput, PaymentHistoryUncheckedCreateWithoutUserInput> | PaymentHistoryCreateWithoutUserInput[] | PaymentHistoryUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentHistoryCreateOrConnectWithoutUserInput | PaymentHistoryCreateOrConnectWithoutUserInput[]
@@ -5160,6 +8153,48 @@ export namespace Prisma {
     update?: PaymentHistoryUpdateWithWhereUniqueWithoutUserInput | PaymentHistoryUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: PaymentHistoryUpdateManyWithWhereWithoutUserInput | PaymentHistoryUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PaymentHistoryScalarWhereInput | PaymentHistoryScalarWhereInput[]
+  }
+
+  export type PaymentSessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput> | PaymentSessionCreateWithoutUserInput[] | PaymentSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentSessionCreateOrConnectWithoutUserInput | PaymentSessionCreateOrConnectWithoutUserInput[]
+    upsert?: PaymentSessionUpsertWithWhereUniqueWithoutUserInput | PaymentSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PaymentSessionCreateManyUserInputEnvelope
+    set?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    disconnect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    delete?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    connect?: PaymentSessionWhereUniqueInput | PaymentSessionWhereUniqueInput[]
+    update?: PaymentSessionUpdateWithWhereUniqueWithoutUserInput | PaymentSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PaymentSessionUpdateManyWithWhereWithoutUserInput | PaymentSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PaymentSessionScalarWhereInput | PaymentSessionScalarWhereInput[]
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type UserCreateNestedOneWithoutPaymentSessionsInput = {
+    create?: XOR<UserCreateWithoutPaymentSessionsInput, UserUncheckedCreateWithoutPaymentSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentSessionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneWithoutPaymentSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutPaymentSessionsInput, UserUncheckedCreateWithoutPaymentSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentSessionsInput
+    upsert?: UserUpsertWithoutPaymentSessionsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPaymentSessionsInput, UserUpdateWithoutPaymentSessionsInput>, UserUncheckedUpdateWithoutPaymentSessionsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5256,6 +8291,88 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type UserCreateWithoutPaymentHistoryInput = {
     id?: string
     name: string
@@ -5264,7 +8381,11 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
     createdAt?: Date | string
+    paymentSessions?: PaymentSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPaymentHistoryInput = {
@@ -5275,7 +8396,11 @@ export namespace Prisma {
     cpf: string
     phone: string
     plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
     createdAt?: Date | string
+    paymentSessions?: PaymentSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPaymentHistoryInput = {
@@ -5321,7 +8446,11 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentSessions?: PaymentSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPaymentHistoryInput = {
@@ -5332,7 +8461,11 @@ export namespace Prisma {
     cpf?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentSessions?: PaymentSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PlansUpsertWithoutPaymentHistoryInput = {
@@ -5430,6 +8563,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PaymentSessionCreateWithoutUserInput = {
+    id?: string
+    sessionId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+  }
+
+  export type PaymentSessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    sessionId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+  }
+
+  export type PaymentSessionCreateOrConnectWithoutUserInput = {
+    where: PaymentSessionWhereUniqueInput
+    create: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentSessionCreateManyUserInputEnvelope = {
+    data: PaymentSessionCreateManyUserInput | PaymentSessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PaymentHistoryUpsertWithWhereUniqueWithoutUserInput = {
     where: PaymentHistoryWhereUniqueInput
     update: XOR<PaymentHistoryUpdateWithoutUserInput, PaymentHistoryUncheckedUpdateWithoutUserInput>
@@ -5444,6 +8605,111 @@ export namespace Prisma {
   export type PaymentHistoryUpdateManyWithWhereWithoutUserInput = {
     where: PaymentHistoryScalarWhereInput
     data: XOR<PaymentHistoryUpdateManyMutationInput, PaymentHistoryUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PaymentSessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: PaymentSessionWhereUniqueInput
+    update: XOR<PaymentSessionUpdateWithoutUserInput, PaymentSessionUncheckedUpdateWithoutUserInput>
+    create: XOR<PaymentSessionCreateWithoutUserInput, PaymentSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentSessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: PaymentSessionWhereUniqueInput
+    data: XOR<PaymentSessionUpdateWithoutUserInput, PaymentSessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PaymentSessionUpdateManyWithWhereWithoutUserInput = {
+    where: PaymentSessionScalarWhereInput
+    data: XOR<PaymentSessionUpdateManyMutationInput, PaymentSessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PaymentSessionScalarWhereInput = {
+    AND?: PaymentSessionScalarWhereInput | PaymentSessionScalarWhereInput[]
+    OR?: PaymentSessionScalarWhereInput[]
+    NOT?: PaymentSessionScalarWhereInput | PaymentSessionScalarWhereInput[]
+    id?: StringFilter<"PaymentSession"> | string
+    sessionId?: StringFilter<"PaymentSession"> | string
+    userId?: StringFilter<"PaymentSession"> | string
+    priceId?: StringFilter<"PaymentSession"> | string
+    planType?: StringFilter<"PaymentSession"> | string
+    status?: StringFilter<"PaymentSession"> | string
+    createdAt?: DateTimeFilter<"PaymentSession"> | Date | string
+  }
+
+  export type UserCreateWithoutPaymentSessionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    cpf: string
+    phone: string
+    plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
+    createdAt?: Date | string
+    paymentHistory?: PaymentHistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPaymentSessionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    cpf: string
+    phone: string
+    plan?: string
+    subscriptionStatus?: string | null
+    subscriptionType?: string | null
+    subscriptionId?: string | null
+    createdAt?: Date | string
+    paymentHistory?: PaymentHistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPaymentSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPaymentSessionsInput, UserUncheckedCreateWithoutPaymentSessionsInput>
+  }
+
+  export type UserUpsertWithoutPaymentSessionsInput = {
+    update: XOR<UserUpdateWithoutPaymentSessionsInput, UserUncheckedUpdateWithoutPaymentSessionsInput>
+    create: XOR<UserCreateWithoutPaymentSessionsInput, UserUncheckedCreateWithoutPaymentSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPaymentSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPaymentSessionsInput, UserUncheckedUpdateWithoutPaymentSessionsInput>
+  }
+
+  export type UserUpdateWithoutPaymentSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentHistory?: PaymentHistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPaymentSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    plan?: StringFieldUpdateOperationsInput | string
+    subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionType?: NullableStringFieldUpdateOperationsInput | string | null
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentHistory?: PaymentHistoryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PaymentHistoryCreateManyPlanInput = {
@@ -5476,6 +8742,15 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type PaymentSessionCreateManyUserInput = {
+    id?: string
+    sessionId: string
+    priceId: string
+    planType: string
+    status: string
+    createdAt?: Date | string
+  }
+
   export type PaymentHistoryUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5491,6 +8766,33 @@ export namespace Prisma {
   export type PaymentHistoryUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     planId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentSessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionId?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    planType?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
